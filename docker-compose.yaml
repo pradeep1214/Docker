@@ -11,17 +11,25 @@ services:
     - "80:80"
     depends_on:
     - catalogue
-  #   - user
+    - user
   #   - cart
   #   - mysql
   #   - shipping
   mongodb:
     image: mongodb:v1
-    container_name: mongodb
-    
+    container_name: mongodb  
   catalogue:
     image: catalogue:v1
     container_name: catalogue
     depends_on:
     - mongodb
+  user:
+    image: user:v1
+    container_name: user
+    dependent_on:
+    - mongodb
+    - redis
+  redis:
+    image: redis
+    container_name: redis
  
