@@ -12,7 +12,7 @@ services:
     depends_on:
     - catalogue
     - user
-  #   - cart
+    - cart
   #   - mysql
   #   - shipping
   mongodb:
@@ -32,4 +32,10 @@ services:
   redis:
     image: redis
     container_name: redis
+  cart:
+    image: cart:v1
+    container_name: cart
+    depends_on:
+    - catalogue
+    - redis
  
