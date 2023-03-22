@@ -1,0 +1,13 @@
+version: "3.9"
+networks:
+  roboshop:
+    driver: bridge
+services:
+  mangodb:
+    image: mangodb:v1
+    container_name: mangodb
+  catalogue:
+    image: catalogue:v1
+    container: catalogue
+    depends_on: 
+    - mangodb
