@@ -26,7 +26,7 @@ services:
   user:
     image: user:v1
     container_name: user
-    dependent_on:
+    depends_on:
     - mongodb
     - redis
   redis:
